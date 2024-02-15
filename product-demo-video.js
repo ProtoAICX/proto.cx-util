@@ -1,4 +1,3 @@
-<!--1-->
 $(document).ready(function() {
   const video_wrapper = $('.product-demo_video-container');
 
