@@ -1,4 +1,4 @@
-!function() {
+document.addEventListener("DOMContentLoaded", function() {
   const video_wrapper = $('.product-demo_video-container');
 
   var WindowWidth = $(window).width();
@@ -39,4 +39,4 @@
     }  
   }
 
-};
+});
