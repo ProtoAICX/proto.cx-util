@@ -16,9 +16,9 @@ $(document).ready(function () {
   }
   // Generic function to initialize a slider calculator
   function initializeSliderCalculator(sliderName, pricePerUnit) {
-    if ($(`div#proapps-calculator-${sliderName}`).length) {
+    if ($(`div#prolingual-calc-${sliderName}`).length) {
       let price = 0
-      const range = document.getElementById(`proapps-range-${sliderName}`)
+      const range = document.getElementById(`prolingual-range-${sliderName}`)
 
       document.addEventListener('DOMContentLoaded', () => {
         setProgress(range, sliderName)
@@ -26,7 +26,7 @@ $(document).ready(function () {
 
       const Calculate = () => {
         price = Math.round(range.value * pricePerUnit)
-        $(`#proapps-value-${sliderName}`).text(
+        $(`.prolingual-calc_value-${sliderName}`).text(
           numberWithCommas(range.value).toString()
         )
       }
@@ -34,7 +34,7 @@ $(document).ready(function () {
       const HandleInput = () => {
         setProgress(range, sliderName)
         Calculate()
-        $(`.proapps-price-${sliderName}`).text(
+        $(`.prolingual-calc_price-${sliderName}`).text(
           numberWithCommas(price).toString()
         )
       }
@@ -49,6 +49,6 @@ $(document).ready(function () {
 
   // Initialize the three slider calculators with different price per units
   initializeSliderCalculator('ttt', 0.007)
-  initializeSliderCalculator('tts', 0.08)
   initializeSliderCalculator('stt', 0.08)
+  initializeSliderCalculator('tts', 0.08)
   })
