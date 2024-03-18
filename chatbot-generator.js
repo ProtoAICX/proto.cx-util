@@ -28,7 +28,7 @@
         res.countries.forEach(country => {
           const newOption = document.createElement("option");
           newOption.value = country.value;
-          newOption.innerHTML = `<div style="display: flex; align-items: center; column-gap: 4px;"><img alt="option-${country.value}" src="https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.value}.svg"><div>${country.title}</div></div>`;
+          newOption.innerText = country.title;
           cbgCountrySelect.appendChild(newOption);
         });
 
