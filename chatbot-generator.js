@@ -23,7 +23,7 @@
 
   if (cbgCountrySelect) {
     fetch('https://website-geolocation.proto-67a.workers.dev')
-      .then(res => res.json()
+      .then(res => res.json())
       .then(res => {
         res.countries.forEach(country => {
           const newOption = document.createElement("option");
