@@ -1,7 +1,8 @@
   const cbgUrlInput = document.getElementById("starturl");
   const cbgIndustrySelect = document.getElementById("industry-select");
+  const cbgCountrySelect = document.getElementById("country-select");
 
-	let didSetDefaultCbgUrl = false;
+  let didSetDefaultCbgUrl = false;
 
   if (cbgUrlInput) {
     cbgUrlInput.addEventListener("click", () => {
@@ -18,6 +19,24 @@
         cbgUrlInput.value = pasteValue;
       }
     });
+  }
+
+  if (cbgCountrySelect) {
+    fetch('https://website-geolocation.proto-67a.workers.dev')
+      .then(res => res.json()
+      .then(res => {
+        res.countries.forEach(country => {
+          const newOption = document.createElement("option");
+          newOption.value = country.value;
+          newOption.innerText = country.title;
+          cbgCountrySelect.appendChild(newOption);
+        });
+
+        if (res.ipcountry) {
+          cbgCountrySelect.value = res.ipcountry;
+        }
+      })
+      .catch(console.error)
   }
 
   var formElement = document.getElementById('cbg-form');
