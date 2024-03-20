@@ -46,11 +46,15 @@
     event.preventDefault();
     const urlInputValue = cbgUrlInput.value;
     const industrySelectValue = cbgIndustrySelect.value === "Industry" ? "Other" : cbgIndustrySelect.value;
+    let countrySelectQueryStr = "";
+    if (cbgCountrySelect && cbgCountrySelect.value !== 'Country') {
+      countrySelectQueryStr = "&country_code=" + cbgCountrySelect.value;
+    }
     
     formElement.style.display = "none";
     const iframeEmbedElement = document.getElementById("cbg-iframe-container");
     iframeEmbedElement.style.display = "block";
-    const iframeSrc = 'https://builder.proto.cx/build?starturl=' + encodeURIComponent(urlInputValue) + '&industry=' + industrySelectValue;
+    const iframeSrc = 'https://builder.proto.cx/build?starturl=' + encodeURIComponent(urlInputValue) + '&industry=' + industrySelectValue + countrySelectQueryStr;
     iframeEmbedElement.innerHTML = '<iframe src="' + iframeSrc + '" class="cbg_iframe" frameborder="0" />'
     return false;
   }
