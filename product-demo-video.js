@@ -3,9 +3,9 @@ $(document).ready(function() {
 
   var WindowWidth = $(window).width();
 
-  const video_mobile = '<video id="demo-video" autoplay loop muted playsinline controlsList="nodownload" disablePictureInPicture style="position:absolute; width:100%; height:100%; z-index: 1;"> <source src="https://www.dropbox.com/scl/fi/ocmxadh0zbgogdykqjpf7/product-demo-mobile.mp4?rlkey=rpyqw7oi42q59sjlh3x84wlo9&raw=1&autoplay=1" type="video/mp4"> </video>';
-  const video_desktop = '<video id="demo-video" autoplay loop muted playsinline controlsList="nodownload" disablePictureInPicture style="position:absolute; width:100%; height:100%; z-index: 1;"> <source src="https://www.dropbox.com/scl/fi/xh2w4sac6m122sghkn2pj/product-demo-desktop.mp4?rlkey=hiryv25kb3n6xcg1y2m9fwjkk&raw=1&autoplay=1" type="video/mp4"> </video>';
-
+  const video_mobile = '<video id="demo-video" autoplay loop muted playsinline controlsList="nodownload" disablePictureInPicture style="position:absolute; width:100%; height:100%; z-index: 1;"> <source src="https://www.dropbox.com/scl/fi/59e5dn2qkaothzt3ls9ue/product-demo-desktop-l.mp4?rlkey=qvwtgdi0dfgm5wqbqfby79acm&raw=1&autoplay=1" type="video/mp4"> </video>';
+  const video_desktop = '<video id="demo-video" autoplay loop muted playsinline controlsList="nodownload" disablePictureInPicture style="position:absolute; width:100%; height:100%; z-index: 1;"> <source src="https://www.dropbox.com/scl/fi/chpdx8pbhc0qajrpskyej/product-demo-mobile-l.mp4?rlkey=ck268wb4ozgu1savxpbz49qba&raw=1&autoplay=1" type="video/mp4"> </video>';
+  
   if (WindowWidth < 479) {
     video_wrapper.append(video_mobile);
   } else {
