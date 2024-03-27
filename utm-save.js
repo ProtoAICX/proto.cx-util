@@ -1,3 +1,4 @@
+// Save UTM parameters to cookies
 (function() {  
   try {  
     const utmParamNames = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];  
@@ -26,3 +27,25 @@
     console.error(error)  
   }  
 }());
+
+// Conditionally show cookiebar alert
+$(document).ready(function () {
+  if (!localStorage.getItem('did-show-cookie-alert')) {
+    // $('#cookieBar').show();
+    $('#cookieBar').css('display', 'flex');
+    localStorage.setItem('did-show-cookie-alert', 'true')
+  }
+});
+
+// Conditionally show proActive welcome
+function defer(method) {
+  if (window.Proto && window.Proto.rpc) { setTimeout(function() { method() }, 3500); }
+  else { setTimeout(function() { defer(method) }, 2000); }
+}
+function welcome_message() {
+  window.Proto.sendTrigger('welcome_message', {sneakpeek: true})
+  localStorage.setItem('did-show-welcome-message', 'true')
+}
+if (!localStorage.getItem('did-show-welcome-message')) { 
+  defer(welcome_message);
+}
