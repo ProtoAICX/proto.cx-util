@@ -78,7 +78,7 @@ function calculatePrice(messagesPerMonth, enabledAddOns, agents) {
         total += agents * PER_AGENT_PRICE;
     }
 
-    perMessageDescriptionEle.innerText = formatPrice(total / messagesPerMonth, 2);
+    perMessageDescriptionEle.innerText = messagesPerMonth === 0 ? formatPrice(0, 2) : formatPrice(total / messagesPerMonth, 2);
     
     updateAddonTags(enabledAddOns);
 
