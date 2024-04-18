@@ -24,12 +24,12 @@ function debounce(cb, delay = 250) {
     }
 }
 
-function formatPrice(price) {
+function formatPrice(price, decimals = 0) {
     return price.toLocaleString("en-US", {
         style: "currency",
         currency: "USD",
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
     });
 }
 
@@ -78,7 +78,7 @@ function calculatePrice(messagesPerMonth, enabledAddOns, agents) {
         total += agents * PER_AGENT_PRICE;
     }
 
-    perMessageDescriptionEle.innerText = formatPrice(total / messagesPerMonth);
+    perMessageDescriptionEle.innerText = formatPrice(total / messagesPerMonth, 2);
     
     updateAddonTags(enabledAddOns);
 
