@@ -111,6 +111,8 @@ function registerEventHandlers() {
     const urlParams = searchParamsInterface();
     const selectedAddOns = []
     let messagesPerMonthCache = 0;
+    
+    const proAgentsInputEle = document.getElementById("agents-number-input");
 
     Inputmask("integer", {
         groupSeparator: ",",
@@ -122,7 +124,7 @@ function registerEventHandlers() {
             messagesPerMonthCache = parseInt(value);
             rangeSliderEle.value = "" + messagesPerMonthCache;
             urlParams.set("messagesPerMonth", "" + messagesPerMonthCache);
-            calculatePrice(messagesPerMonthCache, selectedAddOns);
+            calculatePrice(messagesPerMonthCache, selectedAddOns, proAgentsInputEle.value);
         }
     }).mask(numberInputEle);
 
@@ -131,7 +133,7 @@ function registerEventHandlers() {
         messagesPerMonthCache = parseInt(e.target.value);
         numberInputEle.value = "" + messagesPerMonthCache;
         urlParams.set("messagesPerMonth", "" + messagesPerMonthCache);
-        calculatePrice(messagesPerMonthCache, selectedAddOns);
+        calculatePrice(messagesPerMonthCache, selectedAddOns, proAgentsInputEle.value);
     });
 
     // Add-on Checkboxes
@@ -163,7 +165,7 @@ function registerEventHandlers() {
                 }
             }
 
-            calculatePrice(messagesPerMonthCache, selectedAddOns);
+            calculatePrice(messagesPerMonthCache, selectedAddOns, proAgentsInputEle.value);
         });
     });
 
@@ -211,13 +213,11 @@ function registerEventHandlers() {
                 }
             }
 
-            calculatePrice(messagesPerMonthCache, selectedAddOns);
+            calculatePrice(messagesPerMonthCache, selectedAddOns, proAgentsInputEle.value);
         });
     });
 
-
     // proAgents slider
-    const proAgentsInputEle = document.getElementById("agents-number-input");
     proAgentsInputEle.addEventListener("input", () => {
         urlParams.set("agents", proAgentsInputEle.value);
         calculatePrice(messagesPerMonthCache, selectedAddOns, proAgentsInputEle.value);
@@ -245,7 +245,7 @@ function registerEventHandlers() {
             }
         }
 
-        calculatePrice(messagesPerMonthCache, selectedAddOns);
+        calculatePrice(messagesPerMonthCache, selectedAddOns, proAgentsInputEle.value);
     });
 
     // First run based on query params
@@ -261,6 +261,9 @@ function registerEventHandlers() {
             if (addOn === "pro-gpt-max") {
                 proGptMaxPerMessageTag.classList.remove("hide");
             }
+            if (addOn === "pro-agents") {
+                proAgentsInputEle.disabled = false;
+            }
             const checkboxEle = document.querySelector(`input[name='${addOn}']`);
             checkboxEle.checked = true;
             selectedAddOns.push(addOn);
@@ -274,7 +277,7 @@ function registerEventHandlers() {
 
     rangeSliderEle.style.setProperty("--value", rangeSliderEle.value); // For CSS
     rangeSliderEle.style.setProperty("--max", rangeSliderEle.max); // For CSS
-    calculatePrice(messagesPerMonthCache, selectedAddOns);
+    calculatePrice(messagesPerMonthCache, selectedAddOns, proAgentsInputEle.value);
 }
 
 if (document.readyState === "complete") {
