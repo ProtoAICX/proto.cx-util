@@ -58,9 +58,9 @@ function onFormSubmit(event) {
   iframeEmbedElement.innerHTML = '<iframe src="' + iframeSrc + '" class="cbg_iframe" frameborder="0" />'
   return false;
 
-  const grid1 = document.getElementById("generator-grid-1")
+  const grid1 = document.getElementById("generator-grid-1");
   grid1.disabled = true;
 
-  const grid2 = document.getElementById("generator-grid-2")
+  const grid2 = document.getElementById("generator-grid-2");
   grid2.removeAttribute("type");
 }
