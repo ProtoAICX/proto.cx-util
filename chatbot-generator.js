@@ -44,6 +44,12 @@ formElement.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
+  
+  const grid1 = document.getElementById("generator-grid-1");
+  grid1.disabled = true;
+  const grid2 = document.getElementById("generator-grid-2");
+  grid2.removeAttribute("type");
+  
   const urlInputValue = cbgUrlInput.value;
   const industrySelectValue = cbgIndustrySelect.value === "Industry" ? "Other" : cbgIndustrySelect.value;
   let countrySelectQueryStr = "";
@@ -57,10 +63,4 @@ function onFormSubmit(event) {
   const iframeSrc = 'https://builder.proto.cx/build?starturl=' + encodeURIComponent(urlInputValue) + '&industry=' + industrySelectValue + countrySelectQueryStr;
   iframeEmbedElement.innerHTML = '<iframe src="' + iframeSrc + '" class="cbg_iframe" frameborder="0" />'
   return false;
-
-  const grid1 = document.getElementById("generator-grid-1");
-  grid1.disabled = true;
-
-  const grid2 = document.getElementById("generator-grid-2");
-  grid2.removeAttribute("type");
 }
