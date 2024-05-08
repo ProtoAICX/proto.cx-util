@@ -69,6 +69,10 @@ function onFormSubmit(event) {
     hubspotUrlParams.set('channels_or_integrations_required', selected_apps)
     hubspotUrlParams.set('average_number_of_messages_month', interactions_num)
 
+    console.log('PARAMS')
+    console.log(hubspotUrlParams.toString())
+    console.log(hubspotUrlParams)
+
     // formContainer.style.display = "none";
     
     // const iframeEmbedElement = document.getElementById("cbg-iframe-container");
