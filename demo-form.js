@@ -50,6 +50,8 @@ function onFormSubmit(event) {
   
   const industrySelectValue = industrySelect.value === "Industry" ? "Other" : industrySelect.value;
 
+  const interactionsNum = interactions.value.replace(/,/g, '');
+  
   const hubspotUrlParams = new URLSearchParams()
 
   hubspotUrlParams.set('firstname', firstName.value)
@@ -62,7 +64,7 @@ function onFormSubmit(event) {
   }
   hubspotUrlParams.set('preferred_languages', languagesParam)
   hubspotUrlParams.set('channels_or_integrations_required', appsParam)
-  hubspotUrlParams.set('average_number_of_messages_month', interactions_num)
+  hubspotUrlParams.set('average_number_of_messages_month', interactionsNum)
 
   console.log('PARAMS')
   console.log(hubspotUrlParams.toString())
