@@ -58,8 +58,8 @@ function onFormSubmit(event) {
   hubspotUrlParams.set('company', company.value)
   hubspotUrlParams.set('vertical', industrySelectValue)
   hubspotUrlParams.set('country_name', countrySelect.value)
-  hubspotUrlParams.set('preferred_languages', selected_languages)
-  hubspotUrlParams.set('channels_or_integrations_required', selected_apps)
+  hubspotUrlParams.set('preferred_languages', languagesParam)
+  hubspotUrlParams.set('channels_or_integrations_required', appsParam)
   hubspotUrlParams.set('average_number_of_messages_month', interactions_num)
 
   console.log('PARAMS')
