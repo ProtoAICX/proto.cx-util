@@ -21,7 +21,8 @@ if (countrySelect) {
       });
   
       if (res.ipcountry) {
-        countrySelect.title = res.ipcountry;
+        countrySelect.value = res.ipcountry;
+        $(countrySelect).trigger('change')
       }
     })
     .catch(console.error)
