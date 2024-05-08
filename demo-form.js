@@ -62,7 +62,9 @@ function onFormSubmit(event) {
       email,
       company,
       interactions,
-      countrySelect
+      countrySelect,
+      appSelect,
+      languageSelect,
     })
     // formContainer.style.display = "none";
     
