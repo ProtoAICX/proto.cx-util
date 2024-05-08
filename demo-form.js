@@ -49,23 +49,26 @@ function onFormSubmit(event) {
     && !!countrySelect
     && !!languageSelect
   ) {
-    const selectedApps = appSelect.value;
-    const selectedLanguages = languageSelect.value;
+    const selectedLanguages = languageSelect.selectedOptions;
+    const languagesParam = selectedLanguages.map(ele => ele.value).join(";");
+    
+    const selectedApps = appSelect.selectedOptions;
+    const appsParam = selectedApps.map(ele => ele.value).join(";");
+    
     const industrySelectValue = industrySelect.value === "Industry" ? "Other" : industrySelect.value;
-  
-    console.log({
-      selectedApps,
-      selectedLanguages,
-      industrySelectValue,
-      firstName,
-      lastName,
-      email,
-      company,
-      interactions,
-      countrySelect,
-      appSelect,
-      languageSelect,
-    })
+
+    const hubspotUrlParams = new URLSearchParams()
+
+    hubspotUrlParams.set('firstname', firstName.value)
+    hubspotUrlParams.set('lastname', lastName.value)
+    hubspotUrlParams.set('email', email.value)
+    hubspotUrlParams.set('company', company.value)
+    hubspotUrlParams.set('vertical', industrySelectValue)
+    hubspotUrlParams.set('country_name', countrySelect.value)
+    hubspotUrlParams.set('preferred_languages', selected_languages)
+    hubspotUrlParams.set('channels_or_integrations_required', selected_apps)
+    hubspotUrlParams.set('average_number_of_messages_month', interactions_num)
+
     // formContainer.style.display = "none";
     
     // const iframeEmbedElement = document.getElementById("cbg-iframe-container");
