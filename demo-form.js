@@ -15,7 +15,7 @@ if (countrySelect) {
     .then(res => {
       res.countries.forEach(country => {
         const newOption = document.createElement("option");
-        newOption.value = country.title;
+        newOption.value = country.value;
         newOption.innerText = country.title;
         countrySelect.appendChild(newOption);
       });
@@ -57,7 +57,9 @@ function onFormSubmit(event) {
   hubspotUrlParams.set('email', email.value)
   hubspotUrlParams.set('company', company.value)
   hubspotUrlParams.set('vertical', industrySelectValue)
-  hubspotUrlParams.set('country_name', countrySelect.value)
+  if (countrySelect.selectedOptions.length) {
+    hubspotUrlParams.set('country_name', countrySelect.selectedOptions[0].innerText)
+  }
   hubspotUrlParams.set('preferred_languages', languagesParam)
   hubspotUrlParams.set('channels_or_integrations_required', appsParam)
   hubspotUrlParams.set('average_number_of_messages_month', interactions_num)
