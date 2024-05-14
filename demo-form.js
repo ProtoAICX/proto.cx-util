@@ -1,3 +1,27 @@
+const FREE_EMAIL_DOMAINS = [
+  "gmail.com",
+  "yahoo.com",
+  "outlook.com",
+  "aol.com",
+  "protonmail.com",
+  "proton.me",
+  "zoho.com",
+  "yandex.com",
+  "mail.com",
+  "gmx.com",
+  "icloud.com",
+  "fastmail.com",
+  "tutanota.com",
+  "mail.ru",
+  "hushmail.com",
+  "airmail.net",
+  "lycos.com",
+  "netcourrier.com",
+  "zimbra.com",
+  "rediffmail.com",
+  "mailinator.com",
+];
+
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
@@ -70,8 +94,10 @@ function onFormSubmit(event) {
   const industrySelectValue = industrySelect.value === "Industry" ? "Other" : industrySelect.value;
 
   const interactionsNum = interactions.value.replace(/,/g, '');
+
+  const emailDomain = email.value.split("@").pop().toLowerCase();
   
-  const hubspotUrlParams = new URLSearchParams()
+  const hubspotUrlParams = new URLSearchParams();
 
   hubspotUrlParams.set('firstname', firstName.value)
   hubspotUrlParams.set('lastname', lastName.value)
