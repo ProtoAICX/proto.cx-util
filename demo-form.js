@@ -96,6 +96,11 @@ function onFormSubmit(event) {
   const interactionsNum = interactions.value.replace(/,/g, '');
 
   const emailDomain = email.value.split("@").pop().toLowerCase();
+
+  if (FREE_EMAIL_DOMAINS.includes(emailDomain)) {
+    alert('Please use your business email');
+    return;
+  }
   
   const hubspotUrlParams = new URLSearchParams();
 
