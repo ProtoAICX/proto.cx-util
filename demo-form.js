@@ -30,6 +30,24 @@ if (countrySelect) {
   console.error('Could not find countrySelect');
 }
 
+if (languageSelect) {
+  fetch('https://uploads-ssl.webflow.com/6571acfb082932878f948eaf/66421b61a49df95ab5bfa416_languages.txt')
+    .then(res => res.json())
+    .then(res => {
+      res.languages.forEach(language => {
+        const newOption = document.createElement("option");
+        newOption.value = language.lang_code;
+        newOption.innerText = language.name;
+        languageSelect.appendChild(newOption);
+      });
+
+})
+  .catch(console.error)
+} else {
+  console.error('Could not find languageSelect');
+}
+  
+
 const formContainer = document.getElementById('demo-form-container');
 const formElement = document.getElementById('demo-form');
 
