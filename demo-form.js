@@ -60,7 +60,7 @@ if (languageSelect) {
     .then(res => {
       res.languages.forEach(language => {
         const newOption = document.createElement("option");
-        newOption.value = language.lang_code;
+        newOption.value = language.name;
         newOption.innerText = language.name;
         languageSelect.appendChild(newOption);
       });
