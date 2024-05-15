@@ -33,6 +33,13 @@ const countrySelect = document.getElementById("country-select");
 const appSelect = document.getElementById("apps");
 const languageSelect = document.getElementById("languages");
 
+const proGptToggle = document.getElementById("progpt-toggle");
+const proAppsToggle = document.getElementById("proapps-toggle");
+const proActiveToggle = document.getElementById("proactive-toggle");
+const proDataToggle = document.getElementById("prodata-toggle");
+const proAnalyticsToggle = document.getElementById("proanalytics-toggle");
+const proAgentsToggle = document.getElementById("proagents-toggle");
+
 if (countrySelect) {
   fetch('https://website-geolocation.proto-67a.workers.dev')
     .then(res => res.json())
