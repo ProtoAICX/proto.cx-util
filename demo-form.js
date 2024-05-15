@@ -123,16 +123,32 @@ function onFormSubmit(event) {
   hubspotUrlParams.set('channels_or_integrations_required', appsParam)
   hubspotUrlParams.set('average_number_of_messages_month', interactionsNum)
 
-  console.log('PARAMS')
-  console.log(hubspotUrlParams.toString())
-  console.log(hubspotUrlParams)
+  let addonsParam = "";
+  for (const [addon, param] of [
+    [proGptToggle, "proGPT"],
+    [proAppsToggle, "proApps"],
+    [proActiveToggle, "proActive"],
+    [proDataToggle, "proData"],
+    [proAnalyticsToggle, "proAnalytics"],
+    [proAgentsToggle, "proAgents"],
+  ]) {
+    if (addon.checked) {
+      addonsParam += `;${param}`
+    }
+  }
 
-  // formContainer.style.display = "none";
+  if (addonsParam) {
+    hubspotUrlParams.set('proto_aicx_add_ons_of_interest', addonsParam)
+  }
+
+  console.log(hubspotUrlParams.toString());
+
+  formContainer.style.display = "none";
   
-  // const iframeEmbedElement = document.getElementById("cbg-iframe-container");
-  // iframeEmbedElement.style.display = "flex";
+  const iframeEmbedElement = document.getElementById("cbg-iframe-container");
+  iframeEmbedElement.style.display = "flex";
   
-  // const iframeSrc = 'https://app.hubspot.com/meetings/curtis-proto/proto-demo-new?firstname=' + encodeURIComponent(firstName.value) + '&lastname=' + encodeURIComponent(lastName.value) + '&email=' + encodeURIComponent(email.value) + '&company=' + encodeURIComponent(company.value) + '&vertical=' + industrySelectValue + '&country_name=' + encodeURIComponent(countrySelect.value) + '&preferred_languages=' + encodeURIComponent(selected_languages) + '&channels_or_integrations_required=' + encodeURIComponent(selected_apps) + '&average_number_of_messages_month=' + encodeURIComponent(interactions_num);
-  // iframeEmbedElement.innerHTML = '<iframe src="' + iframeSrc + '" class="cbg_iframe" frameborder="0" />'
+  const iframeSrc = 'https://app.hubspot.com/meetings/curtis-proto/proto-demo-new?' + hubspotUrlParams.toString();
+  iframeEmbedElement.innerHTML = '<iframe src="' + iframeSrc + '" class="cbg_iframe" frameborder="0" />'
   return false;
 }
