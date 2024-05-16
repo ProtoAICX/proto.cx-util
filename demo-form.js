@@ -22,6 +22,8 @@ const FREE_EMAIL_DOMAINS = [
   "mailinator.com",
 ];
 
+const personalSlug = $('.demo_form').attr('slug')
+
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
@@ -148,7 +150,7 @@ function onFormSubmit(event) {
   const iframeEmbedElement = document.getElementById("cbg-iframe-container");
   iframeEmbedElement.style.display = "flex";
   
-  const iframeSrc = 'https://app.hubspot.com/meetings/curtis-proto/proto-demo-new?' + hubspotUrlParams.toString();
+  const iframeSrc = 'https://app.hubspot.com/meetings/' + personalSlug + '?' + hubspotUrlParams.toString();
   iframeEmbedElement.innerHTML = '<iframe src="' + iframeSrc + '" class="cbg_iframe" frameborder="0" />'
   return false;
 }
