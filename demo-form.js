@@ -34,6 +34,7 @@ const industrySelect = document.getElementById("industry-select");
 const countrySelect = document.getElementById("country-select");
 const appSelect = document.getElementById("apps");
 const languageSelect = document.getElementById("languages");
+const referralSelect = document.getElementById("referral-select");
 
 const proGptToggle = document.getElementById("progpt-toggle");
 const proAppsToggle = document.getElementById("proapps-toggle");
@@ -124,6 +125,7 @@ function onFormSubmit(event) {
   hubspotUrlParams.set('preferred_languages', languagesParam)
   hubspotUrlParams.set('channels_or_integrations_required', appsParam)
   hubspotUrlParams.set('average_number_of_messages_month', interactionsNum)
+  hubspotUrlParams.set('how_did_you_find_us_', referralSelect.value)
 
   let addonsParam = "";
   for (const [addon, param] of [
