@@ -1,5 +1,6 @@
 // Start pricing calculator
 const FREE_MESSAGES = 1000;
+const MIN_MESSAGES = 1000000;
 const PER_AGENT_PRICE = 1500;
 const ADD_ON_PRICES = {
     "pro-gpt-core": 499,
@@ -249,7 +250,7 @@ function registerEventHandlers() {
     });
 
     // First run based on query params
-    const messagesPerMonth = urlParams.get("messagesPerMonth") || FREE_MESSAGES;
+    const messagesPerMonth = urlParams.get("messagesPerMonth") || MIN_MESSAGES;
     rangeSliderEle.value = messagesPerMonth;
     numberInputEle.value = messagesPerMonth;
     messagesPerMonthCache = Number(messagesPerMonth);
