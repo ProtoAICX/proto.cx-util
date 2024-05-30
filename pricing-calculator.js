@@ -1,6 +1,6 @@
 // Start pricing calculator
 const FREE_MESSAGES = 1000;
-const MIN_MESSAGES = 1000000;
+const MIN_MESSAGES = 100000;
 const PER_AGENT_PRICE = 1500;
 const ADD_ON_PRICES = {
     "pro-gpt-core": 499,
