@@ -12,6 +12,7 @@ const ADD_ON_PRICES = {
 const DEFAULT_ENABLED_ADDONS = [
     "pro-apps",
     "pro-active",
+    "pro-gpt-core",
 ]
 
 function debounce(cb, delay = 250) {
