@@ -72,3 +72,4 @@ function onFormSubmit(event) {
   
   return false;
 }
+window.scrollTo(0, 1);
