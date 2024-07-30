@@ -28,6 +28,7 @@ const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
 const company = document.getElementById("company");
+const website = document.getElementById("website");
 const interactions = document.getElementById("messages-number-input");
 
 const industrySelect = document.getElementById("industry-select");
@@ -118,6 +119,7 @@ function onFormSubmit(event) {
   hubspotUrlParams.set('lastname', lastName.value)
   hubspotUrlParams.set('email', email.value)
   hubspotUrlParams.set('company', company.value)
+  hubspotUrlParams.set('website', website.value)
   hubspotUrlParams.set('vertical', industrySelectValue)
   if (countrySelect.selectedOptions.length) {
     hubspotUrlParams.set('country_name', countrySelect.selectedOptions[0].innerText)
