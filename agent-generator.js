@@ -1,5 +1,3 @@
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
     const cbgUrlInput = document.getElementById("starturl");
     const cbgCountrySelect = document.getElementById("country-select");
     let didSetDefaultCbgUrl = false;
@@ -73,5 +71,3 @@
     }
 
     window.scrollTo(0, 1);
-  });
-</script>
